@@ -1,0 +1,17 @@
+.main-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #0868ac;
+  padding: 10%;
+  width: 30px;
+  height: 30px;
+  .icon {
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
