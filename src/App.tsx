@@ -1,4 +1,6 @@
-import Home from "./Home";
+import "./App.css";
+
+import Home from "./components/Home";
 import React from "react";
 
 const App = (): JSX.Element => {
