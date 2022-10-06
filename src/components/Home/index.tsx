@@ -12,7 +12,7 @@ const Home = () => {
   };
   return (
     <div className="home-page">
-      Look at the bottom-right corner{" "}
+      <h1>Look at the bottom-right corner</h1>
       <div className="chatbot-area">
         {chatOn && <Chatbot />}
 
