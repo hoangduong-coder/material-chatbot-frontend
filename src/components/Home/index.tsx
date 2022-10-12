@@ -7,9 +7,11 @@ import Chatbot from "../Chatbot";
 
 const Home = () => {
   const [chatOn, setChatOn] = useState<boolean>(false);
+
   const toggleButton = (): void => {
     setChatOn(!chatOn);
   };
+
   return (
     <div className="home-page">
       <h1>Look at the bottom-right corner</h1>
