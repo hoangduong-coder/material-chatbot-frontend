@@ -11,7 +11,7 @@ export default interface Question {
   context?: KnowledgeBaseAnswerContext;
   filters?: QueryFilters;
   includeUnstructuredSources?: boolean;
-  qnaId: number;
+  qnaId?: number;
   question: string;
   rankerType?: RankerKind;
   top?: number;
