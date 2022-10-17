@@ -1,4 +1,4 @@
-import "./styles.scss";
+import "./styles.css";
 
 import ChatRoundedIcon from "@mui/icons-material/ChatRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";

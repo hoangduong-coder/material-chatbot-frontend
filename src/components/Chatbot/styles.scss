@@ -1,0 +1,40 @@
+.chatbot-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin-bottom: 30%;
+  height: 50vh;
+  width: 35ch;
+  box-sizing: border-box;
+
+  :nth-child(n) {
+    box-sizing: inherit;
+  }
+
+  .chatbot-header {
+    display: flex;
+    border: 1px solid black;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2%;
+
+    .header-left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 75%;
+      p {
+        margin-left: 5%;
+      }
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  border-radius: 50%;
+  border: 1px solid #cccccc;
+  justify-content: center;
+}

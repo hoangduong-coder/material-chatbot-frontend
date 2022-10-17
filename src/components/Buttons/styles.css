@@ -9,12 +9,12 @@
   height: 50px;
   -webkit-box-shadow: 6px 6px 8px -6px #000000;
   box-shadow: 6px 6px 8px -6px #000000;
-  .icon {
-    background: none;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-  }
+}
+.icon {
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
 }

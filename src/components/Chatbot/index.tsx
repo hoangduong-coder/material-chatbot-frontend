@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles.scss";
 
 import ChatBotInput from "./Chatbot-input";
 import ChatbotBody from "./Chatbot-body";
