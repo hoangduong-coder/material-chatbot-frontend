@@ -1,11 +1,11 @@
 import { AnswerSpan } from "./helperTypes";
 
 export default interface Answer {
-  questions: string[];
+  questions?: string[];
   answer: string;
-  confidenceScore: number;
-  id: number;
-  source: string;
+  confidenceScore?: number;
+  id?: number;
+  source?: string;
   metadata?: {
     category: string;
     editorial: string;
