@@ -1,4 +1,4 @@
-import { Answer, Question } from "../types";
+import { Answer, Question } from "../../types";
 
 import axios from "axios";
 

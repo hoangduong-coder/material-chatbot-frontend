@@ -3,7 +3,7 @@ import { Answer, Question } from "../../types";
 import { AppDispatch } from "./../store/store";
 import { RootState } from "../store/store";
 import { createSlice } from "@reduxjs/toolkit";
-import questionService from "../questions";
+import questionService from "../azure-api/questions";
 
 interface QnAState {
   question: Question;

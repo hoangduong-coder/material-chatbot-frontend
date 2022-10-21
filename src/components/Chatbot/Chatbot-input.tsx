@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
-import qnaService from "../../services/questions";
+import qnaService from "../../services/azure-api/questions";
 
 const ChatBotInput = () => {
   const [chat, setChat] = useState<string>("Hello");
