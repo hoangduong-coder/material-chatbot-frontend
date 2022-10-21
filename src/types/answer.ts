@@ -1,4 +1,4 @@
-import { AnswerSpan } from "./helperTypes";
+import { AnswerSpan } from "./helperTypes/questionAnswering";
 
 export default interface Answer {
   questions?: string[];

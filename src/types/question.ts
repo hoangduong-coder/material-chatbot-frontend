@@ -3,7 +3,7 @@ import {
   QueryFilters,
   RankerKind,
   ShortAnswerOptions,
-} from "./helperTypes";
+} from "./helperTypes/questionAnswering";
 
 export default interface Question {
   answerSpanRequest?: ShortAnswerOptions;
