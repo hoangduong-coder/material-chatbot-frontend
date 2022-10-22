@@ -4,7 +4,7 @@ export interface MaterialProperties {
   properties?: unknown;
 }
 
-export default interface Material {
+export interface Material {
   _id: string;
   objectName: string;
   dimensions: string;
