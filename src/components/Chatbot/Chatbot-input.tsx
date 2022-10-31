@@ -1,25 +1,27 @@
-import React, { useState } from "react";
-
+import React from "react";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
-import qnaService from "../../services/azure-api/questions";
+import { postNewQuestion } from "../../services/slices/reducer";
+import { useAppDispatch } from "../../services/slices/hooks";
 
 const ChatBotInput = () => {
-  const [chat, setChat] = useState<string>("Hello");
-  const sendChat = async () => {
-    const data = await qnaService.postQuestion({
-      question: "Standard MAT0001",
-    });
-    console.log(data.answers);
-    setChat(data.answers[0].answer);
+  const dispatch = useAppDispatch();
+  const sendChat = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      query: { value: string };
+    };
+    dispatch(postNewQuestion({ question: target.query.value }));
+    target.query.value = "";
   };
 
   return (
-    <div>
-      {chat}
-      <input />
-      <button type="submit" onClick={() => sendChat()}>
-        <SendRoundedIcon />
-      </button>
+    <div className="chatbot-bottom">
+      <form onSubmit={sendChat}>
+        <input className="chatbot-input" name="query" />
+        <button type="submit" className="button">
+          <SendRoundedIcon />
+        </button>
+      </form>
     </div>
   );
 };
