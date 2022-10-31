@@ -8,11 +8,13 @@ import questionService from "../azure-api/questions";
 interface QnAState {
   question: Question;
   answer: Answer;
+  allChat: Array<Question | Answer>;
 }
 
 const initialState: QnAState = {
   question: { question: "" },
   answer: { answer: "" },
+  allChat: [],
 };
 
 export const qnaSlice = createSlice({
