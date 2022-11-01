@@ -1,11 +1,11 @@
-import answerReducer from "../slices/reducer";
+import chatLogReducer from "../slices/reducer";
 import { configureStore } from "@reduxjs/toolkit";
-import questionReducer from "../slices/reducer";
+import messageReducer from "../slices/reducer";
 
 export const store = configureStore({
   reducer: {
-    question: questionReducer,
-    answer: answerReducer,
+    message: messageReducer,
+    chatLog: chatLogReducer,
   },
 });
 

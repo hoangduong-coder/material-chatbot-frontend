@@ -5,15 +5,18 @@ import { RootState } from "../store/store";
 import { createSlice } from "@reduxjs/toolkit";
 import questionService from "../azure-api/questions";
 
+interface Message {
+  title: "QUESTION" | "ANSWER";
+  content: Question | Answer;
+}
+
 interface QnAState {
-  question: Question;
-  answer: Answer;
-  allChat: Array<Question | Answer>;
+  message: Message;
+  allChat: Array<Message>;
 }
 
 const initialState: QnAState = {
-  question: { question: "" },
-  answer: { answer: "" },
+  message: { title: "QUESTION", content: { question: "" } },
   allChat: [],
 };
 
@@ -22,25 +25,23 @@ export const qnaSlice = createSlice({
   initialState,
   reducers: {
     createQuestion: (state, action) => {
-      const message = action.payload;
-      state.question = message;
+      state.allChat.push(action.payload);
     },
     getAnswer: (state, action) => {
       const message = action.payload;
-      state.answer = message;
+      state.message = message;
+      state.allChat.push(message);
     },
   },
 });
 
 export const { createQuestion, getAnswer } = qnaSlice.actions;
 
-export const selectQuestion = (state: RootState) => state.question;
-export const selectAnswer = (state: RootState) => state.answer;
-
 export const postNewQuestion = (question: Question) => {
   return async (dispatch: AppDispatch) => {
+    dispatch(createQuestion({ title: "QUESTION", content: question }));
     const answer = await questionService.postQuestion(question);
-    dispatch(getAnswer(answer));
+    dispatch(getAnswer({ title: "ANSWER", content: answer.answers[0] }));
   };
 };
 
