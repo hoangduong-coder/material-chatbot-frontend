@@ -1,4 +1,26 @@
-.bubbles {
-  border-radius: 5%;
-  border: 2px solid #ff7321;
+.chat-question {
+  display: flex;
+  width: 60%;
+  padding: 3%;
+
+  .bubble-left {
+    border-radius: 10px;
+    border: 2px solid #ff7321;
+    width: fit-content;
+    padding: 1%;
+  }
+}
+
+.chat-reply {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 3%;
+
+  .bubble-right {
+    width: fit-content;
+    border-radius: 10px;
+    border: 2px solid #ff7321;
+    padding: 1%;
+  }
 }
