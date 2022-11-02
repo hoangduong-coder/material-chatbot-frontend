@@ -2,7 +2,7 @@ import { Answer, Question } from "../../types";
 
 import axios from "axios";
 
-const baseUrl = `https://${process.env.REACT_APP_ENDPOINT}.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=material-chatbot-qna&api-version=2021-10-01&deploymentName=production`;
+const baseUrl = `https://${process.env.REACT_APP_ENDPOINT}.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=material-chatbot-qna-2&api-version=2021-10-01&deploymentName=production`;
 
 const postQuestion = async (question: Question) => {
   const { data } = await axios.post<{ answers: Answer[] }>(baseUrl, question, {
