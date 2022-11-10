@@ -17,7 +17,12 @@ interface QnAState {
 
 const initialState: QnAState = {
   message: { title: "QUESTION", content: { question: "" } },
-  allChat: [],
+  allChat: [
+    {
+      title: "ANSWER",
+      content: { answer: "Hello, how can I help you?" },
+    },
+  ],
 };
 
 export const qnaSlice = createSlice({
