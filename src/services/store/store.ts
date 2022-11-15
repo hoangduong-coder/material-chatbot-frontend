@@ -1,11 +1,13 @@
-import chatLogReducer from "../slices/qna-slice";
+import chatLogReducer from "../slices/reducer";
+import cluReducer from "../slices/reducer";
 import { configureStore } from "@reduxjs/toolkit";
-import messageReducer from "../slices/qna-slice";
+import messageReducer from "../slices/reducer";
 
 export const store = configureStore({
   reducer: {
     message: messageReducer,
     chatLog: chatLogReducer,
+    intents: cluReducer,
   },
 });
 

@@ -1,6 +1,8 @@
 import { Answer, Question } from "../../types";
 
 import { AppDispatch } from "../store/store";
+import { QueryModels } from "./../../types/helperTypes/clu";
+import cluService from "../azure-api/clu";
 import { createSlice } from "@reduxjs/toolkit";
 import questionService from "../azure-api/questions";
 
@@ -12,6 +14,7 @@ interface Message {
 interface QnAState {
   message: Message;
   allChat: Array<Message>;
+  intent?: QueryModels;
 }
 
 const initialState: QnAState = {
@@ -31,6 +34,9 @@ export const qnaSlice = createSlice({
     createQuestion: (state, action) => {
       state.allChat.push(action.payload);
     },
+    getIntent: (state, action) => {
+      state.intent = action.payload;
+    },
     getAnswer: (state, action) => {
       const message = action.payload;
       state.message = message;
@@ -39,12 +45,20 @@ export const qnaSlice = createSlice({
   },
 });
 
-export const { createQuestion, getAnswer } = qnaSlice.actions;
+export const { createQuestion, getAnswer, getIntent } = qnaSlice.actions;
 
 export const postNewQuestion = (question: Question) => {
   return async (dispatch: AppDispatch) => {
-    dispatch(createQuestion({ title: "QUESTION", content: question }));
+    const intents = await cluService.postUtterance(question);
+    dispatch(getIntent({ title: "GET_INTENTION", content: intents }));
+    console.log(intents);
+  };
+};
+
+export const returnAnswer = (question: Question) => {
+  return async (dispatch: AppDispatch) => {
     const answer = await questionService.postQuestion(question);
+    dispatch(createQuestion({ title: "QUESTION", content: question }));
     dispatch(getAnswer({ title: "ANSWER", content: answer.answers[0] }));
   };
 };
