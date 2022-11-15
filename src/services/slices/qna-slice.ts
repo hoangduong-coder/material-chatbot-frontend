@@ -1,6 +1,6 @@
 import { Answer, Question } from "../../types";
 
-import { AppDispatch } from "./../store/store";
+import { AppDispatch } from "../store/store";
 import { createSlice } from "@reduxjs/toolkit";
 import questionService from "../azure-api/questions";
 

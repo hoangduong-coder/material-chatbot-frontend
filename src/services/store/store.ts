@@ -1,6 +1,6 @@
-import chatLogReducer from "../slices/reducer";
+import chatLogReducer from "../slices/qna-slice";
 import { configureStore } from "@reduxjs/toolkit";
-import messageReducer from "../slices/reducer";
+import messageReducer from "../slices/qna-slice";
 
 export const store = configureStore({
   reducer: {
