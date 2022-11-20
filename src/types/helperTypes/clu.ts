@@ -37,7 +37,7 @@ export type Entity = {
   length?: number;
   offset?: number;
   text?: string;
-  extraInformation?: Array<{ extraInformationKind: string }>;
+  extraInformation?: Array<{ extraInformationKind: string, key: string }>;
 };
 
 export type Assets = {
@@ -59,3 +59,13 @@ export type QueryModels = {
     };
   };
 };
+
+export type QuestionAsk = {
+  searchKey?: {
+    key: string;
+  };
+  code?: {
+    key: string;
+    value: string;
+  }
+}

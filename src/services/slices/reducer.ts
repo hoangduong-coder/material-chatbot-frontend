@@ -4,7 +4,8 @@ import { AppDispatch } from "../store/store";
 import { QueryModels } from "./../../types/helperTypes/clu";
 import cluService from "../azure-api/clu";
 import { createSlice } from "@reduxjs/toolkit";
-import questionService from "../azure-api/questions";
+
+import MainQuestion from "../func/mainQuestion";
 
 interface Message {
   title: "QUESTION" | "ANSWER";
@@ -51,16 +52,19 @@ export const postNewQuestion = (question: Question) => {
   return async (dispatch: AppDispatch) => {
     const intents = await cluService.postUtterance(question);
     dispatch(getIntent({ title: "GET_INTENTION", content: intents }));
-    console.log(intents);
+    dispatch(createQuestion({ title: "QUESTION", content: question }));
+    dispatch(getAnswer({ title: "ANSWER", content: {answer: MainQuestion(intents) }}));
   };
 };
 
-export const returnAnswer = (question: Question) => {
-  return async (dispatch: AppDispatch) => {
-    const answer = await questionService.postQuestion(question);
-    dispatch(createQuestion({ title: "QUESTION", content: question }));
-    dispatch(getAnswer({ title: "ANSWER", content: answer.answers[0] }));
-  };
-};
+// export const returnAnswer = (question: Question) => {
+//   return async (dispatch: AppDispatch) => {
+//     //const answer: any = ques;
+//     console.log(ques)
+//     const answer = await questionService.postQuestion(question);
+//     
+    
+//   };
+// };
 
 export default qnaSlice.reducer;

@@ -1,4 +1,4 @@
-import { postNewQuestion, returnAnswer } from "../../services/slices/reducer";
+import { postNewQuestion } from "../../services/slices/reducer";
 
 import React from "react";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
@@ -12,7 +12,6 @@ const ChatBotInput = () => {
       query: { value: string };
     };
     dispatch(postNewQuestion({ question: target.query.value }));
-    dispatch(returnAnswer({ question: target.query.value }));
     target.query.value = "";
   };
 
