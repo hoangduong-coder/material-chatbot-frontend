@@ -1,11 +1,10 @@
 import { Answer, Question } from "../../types";
 
 import { AppDispatch } from "../store/store";
+import MainQuestion from "../func/mainQuestion";
 import { QueryModels } from "./../../types/helperTypes/clu";
 import cluService from "../azure-api/clu";
 import { createSlice } from "@reduxjs/toolkit";
-
-import MainQuestion from "../func/mainQuestion";
 
 interface Message {
   title: "QUESTION" | "ANSWER";
@@ -53,7 +52,9 @@ export const postNewQuestion = (question: Question) => {
     const intents = await cluService.postUtterance(question);
     dispatch(getIntent({ title: "GET_INTENTION", content: intents }));
     dispatch(createQuestion({ title: "QUESTION", content: question }));
-    dispatch(getAnswer({ title: "ANSWER", content: {answer: MainQuestion(intents) }}));
+    dispatch(
+      getAnswer({ title: "ANSWER", content: { answer: MainQuestion(intents) } })
+    );
   };
 };
 
@@ -62,8 +63,8 @@ export const postNewQuestion = (question: Question) => {
 //     //const answer: any = ques;
 //     console.log(ques)
 //     const answer = await questionService.postQuestion(question);
-//     
-    
+//
+
 //   };
 // };
 

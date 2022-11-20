@@ -1,7 +1,6 @@
-import { postNewQuestion } from "../../services/slices/reducer";
-
 import React from "react";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import { postNewQuestion } from "../../services/slices/reducer";
 import { useAppDispatch } from "../../services/slices/hooks";
 
 const ChatBotInput = () => {
