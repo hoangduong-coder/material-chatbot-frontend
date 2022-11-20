@@ -6,7 +6,7 @@
   .bubble-left {
     border-radius: 10px;
     border: 2px solid #ff7321;
-    width: fit-content;
+    width: 80%;
     padding: 1%;
   }
 }
@@ -18,7 +18,9 @@
   padding: 3%;
 
   .bubble-right {
-    width: fit-content;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
     border-radius: 10px;
     border: 2px solid #ff7321;
     padding: 1%;
