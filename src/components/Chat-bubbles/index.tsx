@@ -11,11 +11,7 @@ const ChatBubble = ({
 }) => {
   return (
     <div className={className}>
-      <p
-        className={className === "chat-reply" ? "bubble-right" : "bubble-left"}
-      >
-        {message}
-      </p>
+      <div className="chat-bubble-content">{message}</div>
     </div>
   );
 };

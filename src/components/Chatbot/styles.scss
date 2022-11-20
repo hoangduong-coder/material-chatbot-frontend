@@ -3,13 +3,16 @@
   flex-direction: column;
   border: 1px solid black;
   margin-bottom: 25%;
-  height: 60vh;
+  height: 50vh;
   width: 35ch;
   box-sizing: border-box;
 
-  @media (min-width: 1500px) {
+  @media screen and (min-width: 1500px) {
     width: 40ch;
-    height: 50vh;
+  }
+
+  @media screen and (max-height: 650px) {
+    height: 60vh;
   }
 
   :nth-child(n) {
