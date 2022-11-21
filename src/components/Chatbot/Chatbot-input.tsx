@@ -1,7 +1,6 @@
-import { postNewQuestion } from "../../services/slices/reducer";
-
 import React from "react";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import { postNewQuestion } from "../../services/slices/reducer";
 import { useAppDispatch } from "../../services/slices/hooks";
 
 const ChatBotInput = () => {
@@ -17,10 +16,10 @@ const ChatBotInput = () => {
 
   return (
     <div className="chatbot-bottom">
-      <form onSubmit={sendChat}>
+      <form onSubmit={sendChat} className="form">
         <input className="chatbot-input" name="query" />
         <button type="submit" className="button">
-          <SendRoundedIcon />
+          <SendRoundedIcon fontSize="large" sx={{ color: "#004A6B" }} />
         </button>
       </form>
     </div>

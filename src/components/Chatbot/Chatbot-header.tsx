@@ -1,6 +1,5 @@
 import { Avatar } from "@mui/material";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import React from "react";
 import logo from "../../assets/small-logo.gif";
 
@@ -14,8 +13,9 @@ const ChatbotHeader = () => {
         <p>Wärtsilä cooperations </p>
       </div>
       <div className="header-right">
-        <HorizontalRuleIcon />
-        <CloseRoundedIcon />
+        <button type="submit" className="button">
+          <CloseRoundedIcon fontSize="medium" sx={{ color: "#004A6B" }} />
+        </button>
       </div>
     </div>
   );

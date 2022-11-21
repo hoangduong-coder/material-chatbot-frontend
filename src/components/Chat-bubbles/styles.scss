@@ -6,11 +6,12 @@
   padding: 3%;
   background-color: $background;
   color: $textColor;
-  max-width: 90%;
+  max-width: 80%;
 }
 
 @mixin chatBubblesArea($justify_content_props: none) {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: $justify_content_props;
   padding: 3%;
