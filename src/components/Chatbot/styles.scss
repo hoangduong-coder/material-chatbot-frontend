@@ -58,8 +58,11 @@
   }
 
   .chatbot-body {
+    display: flex;
     height: 70%;
     overflow: auto;
+    flex-direction: column-reverse;
+    margin-top: 0.5%;
 
     .title {
       display: flex;
