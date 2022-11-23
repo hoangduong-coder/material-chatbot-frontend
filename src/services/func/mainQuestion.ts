@@ -1,6 +1,5 @@
-import { Value } from "sass";
 import { QueryModels, QuestionAsk } from "./../../types/helperTypes/clu";
-import DirectQustion from "./directQuestion"
+import DirectQuestion from "./directQuestion"
 import Selection from "./selection"
 import EquivalentQuestion from "./equivalentQuestion"
 import CalculationQuestion from "./calculationQuestion";
@@ -21,7 +20,7 @@ const MainQuestion = (props: QueryModels) => {
           value: props.result.prediction.entities[1].text!
         }
       }
-      answer = DirectQustion(question)
+      answer = DirectQuestion(question)
       break;
       case 'Selection':
        question = {
