@@ -4,7 +4,7 @@ export default interface Answer {
   questions?: string[];
   answer: string;
   confidenceScore?: number;
-  id?: number;
+  id: number | string;
   source?: string;
   metadata?: {
     category: string;

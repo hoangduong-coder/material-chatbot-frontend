@@ -5,6 +5,7 @@ import MainQuestion from "../func/mainQuestion";
 import { QueryModels } from "./../../types/helperTypes/clu";
 import cluService from "../azure-api/clu";
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 interface Message {
   title: "QUESTION" | "ANSWER";
@@ -18,11 +19,11 @@ interface QnAState {
 }
 
 const initialState: QnAState = {
-  message: { title: "QUESTION", content: { question: "" } },
+  message: { title: "QUESTION", content: { question: "", qnaId: 0 } },
   allChat: [
     {
       title: "ANSWER",
-      content: { answer: "Hello, how can I help you?" },
+      content: { id: 0, answer: "Hello, how can I help you?" },
     },
   ],
 };
@@ -47,13 +48,20 @@ export const qnaSlice = createSlice({
 
 export const { createQuestion, getAnswer, getIntent } = qnaSlice.actions;
 
-export const postNewQuestion = (question: Question) => {
+export const postNewQuestion = (question: string) => {
   return async (dispatch: AppDispatch) => {
-    const intents = await cluService.postUtterance(question);
+    const newQuestionObject: Question = {
+      question: question,
+      qnaId: uuidv4(),
+    };
+    const intents = await cluService.postUtterance(newQuestionObject);
     dispatch(getIntent({ title: "GET_INTENTION", content: intents }));
-    dispatch(createQuestion({ title: "QUESTION", content: question }));
+    dispatch(createQuestion({ title: "QUESTION", content: newQuestionObject }));
     dispatch(
-      getAnswer({ title: "ANSWER", content: { answer: MainQuestion(intents) } })
+      getAnswer({
+        title: "ANSWER",
+        content: { answer: MainQuestion(intents), id: uuidv4() },
+      })
     );
   };
 };
