@@ -1,12 +1,18 @@
 import "./styles.css";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Button from "../Buttons";
 import Chatbot from "../Chatbot";
 
 const Home = () => {
   const [chatOn, setChatOn] = useState<boolean>(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setChatOn(true);
+    }, 3000);
+  }, []);
 
   const toggleButton = (): void => {
     setChatOn(!chatOn);
