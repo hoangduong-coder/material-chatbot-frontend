@@ -1,6 +1,5 @@
 import List from "./material.json";
 import { QuestionAsk } from "./../../types/helperTypes/clu";
-import { miniSerializeError } from "@reduxjs/toolkit";
 
 const RangeQuestion = (props: QuestionAsk) => {
   let check: string = '';
