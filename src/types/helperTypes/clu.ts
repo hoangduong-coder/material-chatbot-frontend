@@ -1,3 +1,4 @@
+import { NumericLiteral } from "typescript";
 import { LanguageCode, Regex, Synonym } from "./language";
 
 interface SubListItem {
@@ -6,6 +7,22 @@ interface SubListItem {
 }
 
 type requireComponent = "learned" | "regex" | "list" | "prebuilts";
+
+type ExtraInfo = {
+  extraInformation: string;
+  key?: string;
+  value?: string;
+  regexPattern?: string;
+};
+
+type Resolution = {
+  resolutionKind: string;
+  unit?: string;
+  value?: number;
+  rangeKind?: string;
+  minimum?: string | number;
+  maximum?: string | number;
+}
 
 export type Utterance = {
   text: string;
@@ -37,7 +54,8 @@ export type Entity = {
   length?: number;
   offset?: number;
   text?: string;
-  extraInformation?: Array<{ extraInformationKind: string, key: string }>;
+  extraInformation?: Array<ExtraInfo>;
+  resolutions?: Array<Resolution>
 };
 
 export type Assets = {
@@ -67,5 +85,13 @@ export type QuestionAsk = {
   code?: {
     key: string;
     value: string;
+  };
+  value?: {
+    kind: string;
+    value: string;
+  };
+  range?: {
+    min: string | number;
+    max: string | number;
   }
 }
