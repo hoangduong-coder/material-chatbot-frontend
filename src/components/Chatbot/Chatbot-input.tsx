@@ -10,7 +10,7 @@ const ChatBotInput = () => {
     const target = e.target as typeof e.target & {
       query: { value: string };
     };
-    dispatch(postNewQuestion({ question: target.query.value }));
+    dispatch(postNewQuestion(target.query.value));
     target.query.value = "";
   };
 

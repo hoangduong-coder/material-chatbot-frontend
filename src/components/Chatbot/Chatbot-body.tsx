@@ -12,19 +12,15 @@ const ChatbotBody = () => {
         {chatLog.map((obj) =>
           obj.title === "QUESTION" ? (
             <ChatBubble
-              //@ts-ignore
-              key={obj.content.question}
+              key={obj.content["qnaId"]}
               className="chat-question"
-              //@ts-ignore
-              message={obj.content.question}
+              message={obj.content["question"]}
             />
           ) : (
             <ChatBubble
-              //@ts-ignore
-              key={obj.content.answer}
+              key={obj.content["id"]}
               className="chat-reply"
-              //@ts-ignore
-              message={obj.content.answer}
+              message={obj.content["answer"]}
             />
           )
         )}
