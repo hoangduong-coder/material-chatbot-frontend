@@ -6,6 +6,7 @@ const DirectQuestion = (props: QuestionAsk) => {
     (l) => l[props.code?.key!] === props.code?.value!
   );
   const ans = searched.map((s) => s[props.searchKey?.key!]);
+  console.log(searched);
   return ans.join();
 };
 
