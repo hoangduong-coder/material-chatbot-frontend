@@ -35,4 +35,6 @@ const postUtterance = async (query: Question) => {
   return data;
 };
 
-export default postUtterance;
+export default {
+  postUtterance: postUtterance,
+};

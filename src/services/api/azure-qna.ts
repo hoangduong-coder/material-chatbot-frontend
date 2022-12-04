@@ -14,4 +14,6 @@ const postQuestion = async (question: Question) => {
   return data;
 };
 
-export default postQuestion;
+export default {
+  postQuestion: postQuestion,
+};
