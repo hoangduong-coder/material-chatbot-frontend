@@ -1,4 +1,4 @@
-import { QueryModels } from "../../types/helperTypes/clu";
+import QueryModels from "../../types/searchQuery";
 import { Question } from "../../types";
 import axios from "axios";
 
