@@ -1,3 +1,5 @@
+/* eslint-disable import/no-anonymous-default-export */
+
 import QueryModels from "../../types/searchQuery";
 import { Question } from "../../types";
 import axios from "axios";
