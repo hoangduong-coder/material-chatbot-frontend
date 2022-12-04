@@ -9,6 +9,4 @@ const postQuestion = async (question: QueryModels) => {
   return data;
 };
 
-export default {
-  postQuestion: postQuestion,
-};
+export default postQuestion;
