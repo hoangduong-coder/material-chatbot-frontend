@@ -10,12 +10,13 @@ interface Message {
   content: Question | Answer;
 }
 
-interface QnAState {
+interface ChatbotState {
   message: Message;
   allChat: Array<Message>;
+  botIsOpen: boolean;
 }
 
-const initialState: QnAState = {
+const initialState: ChatbotState = {
   message: {
     title: "QUESTION",
     content: {
@@ -33,6 +34,7 @@ const initialState: QnAState = {
       },
     },
   ],
+  botIsOpen: false,
 };
 
 export const qnaSlice = createSlice({
@@ -47,10 +49,13 @@ export const qnaSlice = createSlice({
       state.message = message;
       state.allChat.push(message);
     },
+    toggleBot: (state, action) => {
+      state.botIsOpen = action.payload;
+    },
   },
 });
 
-export const { createQuestion, getAnswer } = qnaSlice.actions;
+export const { createQuestion, getAnswer, toggleBot } = qnaSlice.actions;
 
 export const postNewQuestion = (question: string) => {
   return async (dispatch: AppDispatch) => {
@@ -71,6 +76,14 @@ export const postNewQuestion = (question: string) => {
         content: answer,
       })
     );
+  };
+};
+
+export const toggleButton = (chatOn: boolean, timing: number) => {
+  return (dispatch: AppDispatch) => {
+    setTimeout(() => {
+      dispatch(toggleBot(chatOn));
+    }, timing);
   };
 };
 
