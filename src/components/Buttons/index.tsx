@@ -11,15 +11,15 @@ interface ButtonProps {
 
 const Button = ({ chatOn, onClick }: ButtonProps) => {
   return (
-    <div className="main-button">
-      <button onClick={onClick} className="icon">
+    <button onClick={onClick} className="main-button">
+      <div className="icon">
         {!chatOn ? (
           <ChatRoundedIcon style={{ color: "#ffffff" }} />
         ) : (
           <CloseRoundedIcon style={{ color: "#ffffff" }} />
         )}
-      </button>
-    </div>
+      </div>
+    </button>
   );
 };
 

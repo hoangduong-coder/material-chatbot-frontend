@@ -17,7 +17,11 @@ const ChatBotInput = () => {
   return (
     <div className="chatbot-bottom">
       <form onSubmit={sendChat} className="form">
-        <input className="chatbot-input" name="query" />
+        <input
+          className="chatbot-input"
+          name="query"
+          placeholder="Type a message"
+        />
         <button type="submit" className="button">
           <SendRoundedIcon fontSize="large" sx={{ color: "#004A6B" }} />
         </button>
