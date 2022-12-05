@@ -5,7 +5,7 @@ import logo from "../../assets/small-logo.gif";
 import { useAppSelector } from "../../services/slices/hooks";
 
 const ChatbotBody = () => {
-  const chatLog = useAppSelector((state) => state.chatLog.allChat);
+  const chatLog = useAppSelector((state) => state.chatbot.allChat);
   return (
     <div className="chatbot-body">
       <div className="chat-area">

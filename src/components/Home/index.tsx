@@ -1,22 +1,21 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import "./styles.css";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../services/slices/hooks";
 
 import Button from "../Buttons";
 import Chatbot from "../Chatbot";
+import { toggleButton } from "../../services/slices/reducer";
 
 const Home = () => {
-  const [chatOn, setChatOn] = useState<boolean>(false);
+  const chatOn = useAppSelector((state) => state.chatbot.botIsOpen);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setTimeout(() => {
-      setChatOn(true);
-    }, 3000);
+    dispatch(toggleButton(!chatOn, 1500));
   }, []);
-
-  const toggleButton = (): void => {
-    setChatOn(!chatOn);
-  };
 
   return (
     <div className="home-page">
@@ -25,7 +24,10 @@ const Home = () => {
         {chatOn && <Chatbot />}
 
         <div className="button-area">
-          <Button onClick={() => toggleButton()} chatOn={chatOn} />
+          <Button
+            onClick={() => dispatch(toggleButton(!chatOn, 0))}
+            chatOn={chatOn}
+          />
         </div>
       </div>
     </div>
