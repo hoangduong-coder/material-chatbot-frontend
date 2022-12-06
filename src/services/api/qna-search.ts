@@ -4,7 +4,7 @@ import { Answer, QueryModels } from "../../types";
 
 import axios from "axios";
 
-const baseUrl = `/api/qna`;
+const baseUrl = `https://material-chatbot-backend.vercel.app/api/qna`;
 
 const postQuestion = async (question: QueryModels) => {
   const { data } = await axios.post<Answer>(baseUrl, question);
