@@ -14,6 +14,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Contains AI service ([Azure Cognitive Service for Language](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/)) to analyze and understand input questions.
 - Provide to users either further selective options or suitable answer based on the data fetch from the material database. See also this [backend server](https://github.com/hoangduong-coder/material-chatbot-backend).
 
+### 3. Final products
+
+- Go to [this link](https://material-chatbot-vnteam.vercel.app/) for more details
+
 ## Available Scripts and setup
 
 ### 1. Setup and run tutorials:
