@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../services/slices/hooks";
 import { Avatar } from "@mui/material";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import React from "react";
-import logo from "../../assets/small-logo.gif";
+import logo from "../../assets/small-logo.jpeg";
 import { toggleButton } from "../../services/slices/reducer";
 
 const ChatbotHeader = () => {

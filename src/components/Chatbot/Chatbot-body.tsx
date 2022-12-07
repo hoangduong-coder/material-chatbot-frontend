@@ -1,7 +1,7 @@
 import { Avatar } from "@mui/material";
 import ChatBubble from "../Chat-bubbles";
 import React from "react";
-import logo from "../../assets/small-logo.gif";
+import logo from "../../assets/small-logo.jpeg";
 import { useAppSelector } from "../../services/slices/hooks";
 
 const ChatbotBody = () => {
@@ -30,7 +30,7 @@ const ChatbotBody = () => {
         <Avatar
           src={logo}
           alt="Wartsila's logo"
-          sx={{ width: 80, height: 80 }}
+          sx={{ width: 80, height: 80, border: "3px solid #cccccc" }}
         />
         <h2>Wärtsilä cooperations</h2>
       </div>
