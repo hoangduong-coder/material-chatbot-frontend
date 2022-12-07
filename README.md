@@ -16,7 +16,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 3. Final products
 
-- Go to [this link](https://material-chatbot-vnteam.vercel.app/) for more details
+- Go to [this link](https://material-chatbot-vnteam.vercel.app/) for more details.
+![Screenshot 2022-12-07 235111](https://user-images.githubusercontent.com/63698826/206306466-cd7bb1c7-a9fe-473f-ab48-8d51567ad735.png)
 
 ## Available Scripts and setup
 
