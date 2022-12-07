@@ -18,10 +18,11 @@ interface ChatbotState {
 
 const initialState: ChatbotState = {
   message: {
-    title: "QUESTION",
+    title: "ANSWER",
     content: {
-      qnaId: "0",
-      question: "",
+      id: "0",
+      questions: [],
+      answer: "Hello, how can I help you?",
     },
   },
   allChat: [
@@ -41,10 +42,7 @@ export const qnaSlice = createSlice({
   name: "questionAndAnswer",
   initialState,
   reducers: {
-    createQuestion: (state, action) => {
-      state.allChat.push(action.payload);
-    },
-    getAnswer: (state, action) => {
+    createNewMessage: (state, action) => {
       const message = action.payload;
       state.message = message;
       state.allChat.push(message);
@@ -55,27 +53,22 @@ export const qnaSlice = createSlice({
   },
 });
 
-export const { createQuestion, getAnswer, toggleBot } = qnaSlice.actions;
+export const { createNewMessage, toggleBot } = qnaSlice.actions;
 
 export const postNewQuestion = (question: string) => {
   return async (dispatch: AppDispatch) => {
-    const newQuestionObject: Question = {
-      qnaId: "0",
-      question: question,
-    };
-    const intents = await cluService.postUtterance(newQuestionObject);
-    const answer = await searchService.postQuestion(intents);
+    const intents = await cluService.postUtterance(question);
+    const query = await searchService.post(intents);
+    dispatch(createNewMessage({ title: "QUESTION", content: query }));
+  };
+};
 
-    dispatch(
-      createQuestion({ title: "QUESTION", content: answer.questions[0] })
-    );
-
-    dispatch(
-      getAnswer({
-        title: "ANSWER",
-        content: answer,
-      })
-    );
+export const getAnswerFromBot = (question: Question) => {
+  return async (dispatch: AppDispatch) => {
+    const answer = await searchService.get(question.qnaId);
+    setTimeout(() => {
+      dispatch(createNewMessage({ title: "ANSWER", content: answer }));
+    }, 2000);
   };
 };
 
