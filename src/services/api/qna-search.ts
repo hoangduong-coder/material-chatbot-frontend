@@ -1,16 +1,22 @@
 /* eslint-disable import/no-anonymous-default-export */
 
-import { Answer, QueryModels } from "../../types";
+import { Answer, QueryModels, Question } from "../../types";
 
 import axios from "axios";
 
-const baseUrl = `https://material-chatbot-backend.vercel.app/api/qna`;
+const baseUrl = process.env.REACT_APP_BACKEND_BASE_URL || 'http://localhost:3001';
 
 const postQuestion = async (question: QueryModels) => {
-  const { data } = await axios.post<Answer>(baseUrl, question);
+  const { data } = await axios.post<Question>(`${baseUrl}/api/qna`, question);
+  return data;
+};
+
+const getAnswer = async (id: string) => {
+  const { data } = await axios.get<Answer>(`${baseUrl}/api/qna/${id}`);
   return data;
 };
 
 export default {
-  postQuestion: postQuestion,
+  post: postQuestion,
+  get: getAnswer
 };

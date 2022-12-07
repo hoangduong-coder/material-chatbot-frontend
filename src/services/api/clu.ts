@@ -1,21 +1,19 @@
 /* eslint-disable import/no-anonymous-default-export */
 
 import QueryModels from "../../types/searchQuery";
-import { Question } from "../../types";
 import axios from "axios";
 
-const baseUrl = `https://${process.env.REACT_APP_ENDPOINT}.cognitiveservices.azure.com/language/:analyze-conversations?api-version=2022-05-01`;
-
-const postUtterance = async (query: Question) => {
+const postUtterance = async (query: string): Promise<any> => {
   const { data } = await axios.post<QueryModels>(
-    baseUrl,
+    //@ts-ignore
+    process.env.REACT_APP_AZURE_CLU_URL,
     {
       kind: "Conversation",
       analysisInput: {
         conversationItem: {
           id: "1",
           participantId: "1",
-          text: query.question,
+          text: query,
           modality: "text",
           language: "en",
         },
