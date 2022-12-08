@@ -4,7 +4,7 @@ import { Answer, Question } from "../../types";
 
 import axios from "axios";
 
-const postQuestion = async (question: Question) => {
+const postQuestion = async (question: Question): Promise<any> => {
   const { data } = await axios.post<{ answers: Answer[] }>(
     //@ts-ignore
     process.env.REACT_APP_AZURE_QNA_URL,
