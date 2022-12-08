@@ -3,10 +3,11 @@ import { Answer, Question } from "../../types";
 import { AppDispatch } from "../store/store";
 import cluService from "../api/clu";
 import { createSlice } from "@reduxjs/toolkit";
+import qnaService from '../api/azure-qna'
 import searchService from "../api/qna-search";
 
-interface Message {
-  title: "QUESTION" | "ANSWER";
+export interface Message {
+  title: "QUESTION" | "ANSWER" | "STATIC-QUESTION" | "STATIC-ANSWER";
   content: Question | Answer;
 }
 
@@ -57,14 +58,29 @@ export const { createNewMessage, toggleBot } = qnaSlice.actions;
 
 export const postNewQuestion = (question: string) => {
   return async (dispatch: AppDispatch) => {
-    const intents = await cluService.postUtterance(question);
-    const query = await searchService.post(intents);
-    dispatch(createNewMessage({ title: "QUESTION", content: query }));
+    const { answers } = await qnaService.postStaticQuestion({
+      question: question
+    });
+    if (answers.length !== 0 && answers[0]["answer"] !== "No answer found") {
+      dispatch(createNewMessage({
+        title: "STATIC-QUESTION", content: {
+          question: question
+        }
+      }));
+      setTimeout(() => {
+        dispatch(createNewMessage({ title: "STATIC-ANSWER", content: answers[0] }));
+      }, 2000);
+    } else {
+      const intents = await cluService.postUtterance(question);
+      const query = await searchService.post(intents);
+      dispatch(createNewMessage({ title: "QUESTION", content: query }));
+    }
   };
 };
 
 export const getAnswerFromBot = (question: Question) => {
   return async (dispatch: AppDispatch) => {
+    //@ts-ignore
     const answer = await searchService.get(question.qnaId);
     setTimeout(() => {
       dispatch(createNewMessage({ title: "ANSWER", content: answer }));
