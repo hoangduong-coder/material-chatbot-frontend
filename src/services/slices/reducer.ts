@@ -61,7 +61,7 @@ export const postNewQuestion = (question: string) => {
     const { answers } = await qnaService.postStaticQuestion({
       question: question
     });
-    if (answers.length !== 0 && answers[0]["answer"] !== "No answer found") {
+    if (answers && answers.length !== 0 && answers[0]["answer"] !== "No answer found") {
       dispatch(createNewMessage({
         title: "STATIC-QUESTION", content: {
           question: question
