@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.7",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "sass": "^1.55.0",
@@ -54,6 +55,7 @@
     "@types/redux": "^3.6.0",
     "@types/redux-thunk": "^2.1.0",
     "axios": "^1.1.2",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "react-promise-tracker": "^2.1.1"
   }
 }
