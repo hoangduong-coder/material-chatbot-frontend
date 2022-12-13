@@ -6,7 +6,7 @@
   border-radius: 10px;
   margin-bottom: 25%;
   height: 50vh;
-  width: 43ch;
+  width: 40ch;
   box-sizing: border-box;
   -webkit-box-shadow: 7px 7px 0px 0px #004a6b;
   box-shadow: 7px 7px 0px 0px #004a6b;
@@ -71,13 +71,8 @@
       justify-content: center;
       align-items: center;
       margin-bottom: 5%;
-      padding: 0 3%;
       :nth-child(n) {
         margin: 1%;
-      }
-
-      h2 {
-        text-align: center;
       }
     }
   }

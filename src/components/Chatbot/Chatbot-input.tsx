@@ -6,7 +6,6 @@ import {
 import { useAppDispatch, useAppSelector } from "../../services/slices/hooks";
 
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
-import { trackPromise } from "react-promise-tracker";
 
 const ChatBotInput = () => {
   const dispatch = useAppDispatch();
@@ -23,12 +22,10 @@ const ChatBotInput = () => {
 
   useEffect(() => {
     initialMessage.title === "QUESTION" &&
-      trackPromise(
-        dispatch(
-          getAnswerFromBot(
-            //@ts-ignore
-            initialMessage.content
-          )
+      dispatch(
+        getAnswerFromBot(
+          //@ts-ignore
+          initialMessage["content"]
         )
       );
   }, [dispatch, initialMessage]);
