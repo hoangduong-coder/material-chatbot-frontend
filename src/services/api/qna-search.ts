@@ -4,7 +4,7 @@ import { Answer, QueryModels, Question } from "../../types";
 
 import axios from "axios";
 
-const baseUrl = 'http://localhost:3001' || process.env.REACT_APP_BACKEND_BASE_URL;
+const baseUrl = process.env.REACT_APP_BACKEND_BASE_URL;
 
 const postQuestion = async (question: QueryModels) => {
   const { data } = await axios.post<Question>(`${baseUrl}/api/qna`, question);
