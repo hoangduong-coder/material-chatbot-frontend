@@ -3,7 +3,7 @@ import { Answer, Question } from "../../types";
 import { AppDispatch } from "../store/store";
 import cluService from "../api/clu";
 import { createSlice } from "@reduxjs/toolkit";
-import qnaService from "../api/azure-qna";
+import qnaService from '../api/azure-qna'
 import searchService from "../api/qna-search";
 
 export interface Message {
@@ -103,6 +103,7 @@ export const postNewQuestion = (question: string) => {
     );
   };
 };
+
 export const toggleButton = (chatOn: boolean, timing: number) => {
   return (dispatch: AppDispatch) => {
     setTimeout(() => {
