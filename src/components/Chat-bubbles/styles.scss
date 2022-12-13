@@ -33,15 +33,3 @@
     @include chatBubblesStyle;
   }
 }
-
-.loading {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 3%;
-  p {
-    font-style: italic;
-    color: #cccccc;
-    margin-right: 2%;
-  }
-}
