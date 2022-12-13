@@ -1,9 +1,11 @@
 import { Avatar } from "@mui/material";
-import ChatBubble from "../Chat-bubbles";
+import ChatBubble from "../Chat-bubbles/ChatBubble";
+import Loading from "../Chat-bubbles/Loading";
 import { Message } from "../../services/slices/reducer";
 import React from "react";
 import logo from "../../assets/small-logo.jpeg";
 import { useAppSelector } from "../../services/slices/hooks";
+import { usePromiseTracker } from "react-promise-tracker";
 
 interface BubblesProps {
   key: string;
@@ -15,13 +17,7 @@ const chatBubblesProps = (obj: Message): BubblesProps => {
   switch (obj.title) {
     case "QUESTION":
       return {
-        key: obj.content["qnaId"],
-        className: "chat-question",
-        message: obj.content["question"],
-      };
-    case "STATIC-QUESTION":
-      return {
-        key: `${Math.random() * 10000}`,
+        key: `${Math.random() * 1000000 + 1}`,
         className: "chat-question",
         message: obj.content["question"],
       };
@@ -36,6 +32,7 @@ const chatBubblesProps = (obj: Message): BubblesProps => {
 
 const ChatbotBody = () => {
   const chatLog = useAppSelector((state) => state.chatbot.allChat);
+  const { promiseInProgress } = usePromiseTracker();
   return (
     <div className="chatbot-body">
       <div className="chat-area">
@@ -46,6 +43,7 @@ const ChatbotBody = () => {
             message={chatBubblesProps(obj).message}
           />
         ))}
+        {promiseInProgress && <Loading />}
       </div>
 
       <div className="title">
@@ -54,7 +52,7 @@ const ChatbotBody = () => {
           alt="Wartsila's logo"
           sx={{ width: 80, height: 80, border: "3px solid #cccccc" }}
         />
-        <h2>Wärtsilä cooperations</h2>
+        <h2>Wärtsilä Cost Virtual Assistant Bot</h2>
       </div>
     </div>
   );
