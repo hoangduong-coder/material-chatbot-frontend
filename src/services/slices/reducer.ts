@@ -56,6 +56,19 @@ export const qnaSlice = createSlice({
 
 export const { createNewMessage, toggleBot } = qnaSlice.actions;
 
+export const postNewQuestion = (question: string) => {
+  return async (dispatch: AppDispatch) => {
+    dispatch(
+      createNewMessage({
+        title: "QUESTION",
+        content: {
+          question: question,
+        },
+      })
+    );
+  };
+};
+
 export const getAnswerFromBot = (question: Question) => {
   return async (dispatch: AppDispatch) => {
     const { answers } = await qnaService.postStaticQuestion(question);
@@ -88,19 +101,6 @@ export const getAnswerFromBot = (question: Question) => {
         );
       }
     }
-  };
-};
-
-export const postNewQuestion = (question: string) => {
-  return async (dispatch: AppDispatch) => {
-    dispatch(
-      createNewMessage({
-        title: "QUESTION",
-        content: {
-          question: question,
-        },
-      })
-    );
   };
 };
 
