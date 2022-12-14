@@ -21,6 +21,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ![Screenshot 2022-12-07 235111](https://user-images.githubusercontent.com/63698826/206306466-cd7bb1c7-a9fe-473f-ab48-8d51567ad735.png)
 
 - List of available questions:
+
 | Type | Definition | Example |
 | --- | --- | --- |
 | Greeting | | Hello, thank you, goodbye, etc. |
@@ -30,7 +31,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 | Range | Display ID satisfied with a given range | Find materials whose diameter from 200-300 |
 | All params | Give an ID and the bot shows all information about that material | MAT0003 |
 
-- * **Note:** Unfortunately, any other questions whose contents are not mentioned above can not be answer. *
+-***Note:** Unfortunately, any other questions whose contents are not mentioned above can not be answer.*
 
 ## Available Scripts and setup
 
