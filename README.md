@@ -16,9 +16,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 3. Final products
 
-- Go to [this link](https://material-chatbot-vnteam.vercel.app/) for more details.
+- Visit our product [here](https://material-chatbot-vnteam.vercel.app/).
 
-![Screenshot 2022-12-07 235111](https://user-images.githubusercontent.com/63698826/206306466-cd7bb1c7-a9fe-473f-ab48-8d51567ad735.png)
+![image](https://user-images.githubusercontent.com/63698826/207586006-6da0eef4-827e-44b7-a671-b6d83d22f295.png)
+
+- List of available questions:
+
+| Type | Definition | Example |
+| --- | --- | --- |
+| Greeting | | Hello, thank you, goodbye, etc. |
+| Direct | Fetch ID, international standards, physical quantities | What are the raw material and density of MAT0001 and MAT0002? |
+| Equivalent | Fetch ID of simliar material | Which material is similar to MAT0005 and MAT0009? |
+| Calculation | Further calculaton (mass, cost) | What is the cost for 8mm length bar MAT0010? |
+| Range | Display ID satisfied with a given range | Find materials whose diameter from 200-300 |
+| All params | Give an ID and the bot shows all information about that material | MAT0003 |
+
+-***Note:** Unfortunately, any other questions whose content are not mentioned above and/or contain pronunciation error(s) **may not** be answerd correctly.*
 
 ## Available Scripts and setup
 
