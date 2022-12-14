@@ -15,7 +15,7 @@ const ChatbotHeader = () => {
         <div className="logo">
           <Avatar src={logo} alt="logo" sx={{ width: 40, height: 40 }} />
         </div>
-        <p>Wärtsilä Cost Virtual Assistant Bot </p>
+        <p>Design to Cost Virtual Assistant ChatBot</p>
       </div>
       <div className="header-right">
         <button

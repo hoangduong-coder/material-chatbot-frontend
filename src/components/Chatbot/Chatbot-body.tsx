@@ -52,7 +52,7 @@ const ChatbotBody = () => {
           alt="Wartsila's logo"
           sx={{ width: 80, height: 80, border: "3px solid #cccccc" }}
         />
-        <h2>Wärtsilä Cost Virtual Assistant Bot</h2>
+        <h2>Design to Cost Virtual Assistant ChatBot</h2>
       </div>
     </div>
   );
