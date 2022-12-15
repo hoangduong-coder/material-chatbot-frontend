@@ -25,7 +25,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 | Type | Definition | Example |
 | --- | --- | --- |
 | Greeting | | Hello, thank you, goodbye, etc. |
-| Direct | Fetch ID, international standards, physical quantities | What are the raw material and density of MAT0001 and MAT0002? |
+| Direct | Fetch ID, international standards, physical quantities, remarks | What are the raw material and density of MAT0001 and MAT0002? <br> What are materials with Cr, Mn in?|
 | Equivalent | Fetch ID of simliar material | Which material is similar to MAT0005 and MAT0009? |
 | Calculation | Further calculaton (mass, cost) | What is the cost for 8mm length bar MAT0010? |
 | Range | Display ID satisfied with a given range | Find materials whose diameter from 200-300 |
