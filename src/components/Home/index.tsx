@@ -19,7 +19,20 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <h1>Look at the bottom-right corner</h1>
+      <div className="header">
+        <h1>Look at the bottom-right corner</h1>
+        <span>
+          Instructions can be seen{" "}
+          <a
+            href="https://github.com/hoangduong-coder/material-chatbot-frontend/blob/main/README.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            here
+          </a>
+        </span>
+      </div>
+
       <div className="chatbot-area">
         {chatOn && <Chatbot />}
 
