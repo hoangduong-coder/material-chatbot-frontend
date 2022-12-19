@@ -4,7 +4,9 @@ import { Answer, QueryModels, Question } from "../../types";
 
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_BACKEND_BASE_URL;
+const baseUrl = (process.env.REACT_APP_NODE_ENV === "development"
+  ? process.env.REACT_APP_BACKEND_LOCALHOST
+  : process.env.REACT_APP_BACKEND_BASE_URL);
 
 const postQuestion = async (question: QueryModels) => {
   const { data } = await axios.post<Question>(`${baseUrl}/api/qna`, question);
@@ -18,5 +20,5 @@ const getAnswer = async (id: string) => {
 
 export default {
   post: postQuestion,
-  get: getAnswer
+  get: getAnswer,
 };
