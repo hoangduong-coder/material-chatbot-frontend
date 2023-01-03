@@ -47,7 +47,7 @@ or
 yarn install
 ```
 
-2. Create `.env` file with the correct credentials to access Azure service.
+2. Create `.env` file with the correct credentials to access Azure service. (Contact me at [my email](hoangduongphantri@gmail.com) to get the environment variables file.
 3. Run the program by `npm` or `yarn` in the development mode.:
 
 ```
