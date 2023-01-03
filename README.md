@@ -6,7 +6,7 @@
 
 The project is from [Wärtsilä](https://www.wartsila.com/), a global leader in innovative technologies and lifecycle solutions for the marine and energy markets. Each of their products contains many small elements, with a numerous data of chemical compositions, physicals parameters, standards, etc. In some cases, that might be an obstacle for any designer. For this reason, this chatbot is expected to be a solution which assists the customer and designer to get more information about the components and materials.
 
-The main technologies we used here are ([Azure Cognitive Service for Language](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/)), TypeScript, React, Redux, CSS, and SASS. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The main technologies we used here are [Azure Cognitive Service for Language](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/), TypeScript, React, Redux, CSS, and SASS. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ### 2. Main functions
 
